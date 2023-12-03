@@ -1,15 +1,8 @@
 # Random
-function z_internal_maze_generator:z_internal/random
-
-#
-
-# Turn towards new block
-execute store result score mg_result mg_var run function z_internal_maze_generator:z_internal/turn
+function z_internal_maze_generator:z_internal/chose_random_direction
 
 # Move to new block
+execute if score mg_random mg_var matches 0 positioned ^ ^ ^1 run function z_internal_maze_generator:z_internal/handle_next
 
-# Mark New Block
-
-# Mark Blockers
-
-# Check for Exit
+# Check for blocked off and backtrack
+execute if score mg_random mg_var matches 4 run function z_internal_maze_generator:z_internal/backtrack
