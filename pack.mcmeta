@@ -1,1 +1,6 @@
-#hi
+{
+    "pack": {
+        "pack_format": 15,
+        "description": "An internal class to generate mazes. To be used by other Datapacks."
+    }
+}
