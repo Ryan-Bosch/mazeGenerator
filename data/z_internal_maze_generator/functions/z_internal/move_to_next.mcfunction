@@ -1,8 +1,14 @@
 # Random
-execute store result score mg_random mg_var run random value 1..3
+function z_internal_maze_generator:z_internal/random
 
-# Turn
+#
+
+# Turn towards new block
 execute store result score mg_result mg_var run function z_internal_maze_generator:z_internal/turn
+
+# Move to new block
+
+# Mark New Block
 
 # Mark Blockers
 

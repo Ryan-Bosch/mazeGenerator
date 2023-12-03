@@ -1,14 +1,11 @@
 # Check First Space
-execute unless block ~ ~ ~ white_wool run return 0
+execute unless block ~ ~-1 ~ white_wool run return 0
 
 # Scoreboards
 scoreboard objectives add mg_var dummy
 
-# Summon Marker
-summon block_display ~ ~ ~ {Tags:["mg_generator"]}
-
-# Mark
-execute if block ~ ~ ~ white_wool run setblock ~ ~ ~ green_wool
+# Mark current block
+execute if block ~ ~-1 ~ white_wool run setblock ~ ~-1 ~ green_wool
 
 # Next Block
-execute as @e[tag=mg_generator, limit=1, sort=nearest] at @s run function z_internal_maze_generator:z_internal/next
+execute positioned ~ ~-1 ~ run function z_internal_maze_generator:z_internal/move_to_next
