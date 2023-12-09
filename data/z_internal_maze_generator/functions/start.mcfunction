@@ -1,12 +1,14 @@
-# Increase command execution limit
-gamerule maxCommandChainLength 100000
-gamerule maxCommandForkCount 100000
-
 # Check First Space
 execute unless block ~ ~-1 ~ white_wool run return 0
 
 # Scoreboards
 scoreboard objectives add mg_var dummy
+
+# Check maxCommandChainLength and maxCommandForkCount
+execute store result score mg_gamerule mg_var run gamerule maxCommandChainLength
+execute if score mg_gamerule mg_var matches 1000000.. store result score mg_gamerule mg_var run gamerule maxCommandForkCount
+execute unless score mg_gamerule mg_var matches 1000000.. run function z_internal_maze_generator:z_internal/gamerule
+execute unless score mg_gamerule mg_var matches 1000000.. run return 1000000
 
 # Mark current block
 execute if block ~ ~-1 ~ white_wool run setblock ~ ~-1 ~ green_wool
@@ -16,8 +18,4 @@ execute positioned ~ ~-1 ~ run function z_internal_maze_generator:z_internal/mov
 
 # Remove Scoreboard
 scoreboard objectives remove mg_var
-
-# Reset command execution limit
-gamerule maxCommandChainLength 10000
-gamerule maxCommandForkCount 10000
 
