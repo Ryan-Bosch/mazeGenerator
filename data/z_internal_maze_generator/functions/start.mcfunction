@@ -14,6 +14,10 @@ execute if block ~ ~-1 ~ white_wool run setblock ~ ~-1 ~ green_wool
 # Next Block
 execute positioned ~ ~-1 ~ run function z_internal_maze_generator:z_internal/move_to_next
 
+# Remove Scoreboard
+scoreboard objectives remove mg_var
+
 # Reset command execution limit
 gamerule maxCommandChainLength 10000
 gamerule maxCommandForkCount 10000
+
